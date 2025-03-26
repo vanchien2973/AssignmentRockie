@@ -2,7 +2,7 @@
 
 class Program
 {
-    static List<Car> cars = new List<Car>()
+    private static List<Car> cars = new List<Car>()
     {
         new Car { Make = "Tesla", Model = "Model S", Year = 2022, Type = CarType.Electric },
         new Car { Make = "Toyota", Model = "Corolla", Year = 2021, Type = CarType.Fuel },
@@ -54,98 +54,154 @@ class Program
     private static void RemoveCarByModel()
     {
         Console.Write("\nEnter model to remove: ");
-        string model = Console.ReadLine();
-        var car = cars.FirstOrDefault(car => car.Model.Equals(model, StringComparison.OrdinalIgnoreCase));
-        if (car == null)
-            Console.WriteLine("No car found with the model '{0}'.", model);
-        else
+        var model = Console.ReadLine();
+        var carToRemove = cars.FirstOrDefault(car => car.Model.Equals(model, StringComparison.OrdinalIgnoreCase));
+    
+        if (carToRemove == null)
         {
-            cars.Remove(car);
-            Console.WriteLine("Car removed successfully!");
+            Console.WriteLine("Car not found!");
+            return;
         }
+
+        cars.Remove(carToRemove);
+        Console.WriteLine("Car removed successfully!");
     }
 
     private static void FilterCarByType()
     {
         Console.Write("\nEnter type to filter (0 for Electric, 1 for Fuel): ");
-        if (!Enum.TryParse(Console.ReadLine(), out CarType type) || !Enum.IsDefined(typeof(CarType), type))
+        if (!Enum.TryParse(Console.ReadLine(), out CarType type))
         {
             Console.WriteLine("Invalid type.");
             return;
         }
-        var results = cars.Where(c => c.Type == type)
-            .OrderBy(c => c.Make)
-            .ThenBy(c => c.Model)
-            .ToList();
-        if (!results.Any())
-            Console.WriteLine("No cars found with the type '{0}'.", type);
-        else
-        {
-            Console.WriteLine($"\nFound {results.Count} {type} car(s):");
-            foreach (var car in results)
-            {
-                Console.WriteLine(car);
-            }
-        }
+        var filteredCars = cars.Where(car => car.Type == type).ToList();
+        DisplayCars(filteredCars, $"Found {filteredCars.Count} {type} car(s):");
     }
 
+    private static void DisplayCars(List<Car> carsToDisplay, string title)
+    {
+        if (carsToDisplay.Count == 0)
+        {
+            Console.WriteLine("No cars found.");
+            return;
+        }
+
+        Console.WriteLine($"\n{title}");
+        Console.WriteLine(Car.GetTableHeader());
+        foreach (var car in carsToDisplay)
+        {
+            Console.WriteLine(car);
+        }
+        Console.WriteLine(Car.GetTableFooter());
+    }
+    
     private static void SearchCarByMake()
     {
         Console.Write("\nEnter make to search: ");
-        string make = Console.ReadLine();
-        var results = cars.Where(car => car.Make.Equals(make, StringComparison.OrdinalIgnoreCase))
-            .OrderBy(c => c.Year)
-            .ToList();
-        if (!results.Any())
-            Console.WriteLine("No cars found with the make '{0}'.", make);
+        var searchTerm = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(searchTerm))
+        {
+            Console.WriteLine("Please enter a search term!");
+            return;
+        }
+        var results = cars.Where(c => c.Make.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
+        if (results.Count == 0)
+            Console.WriteLine("No cars found with the make '{0}'.", searchTerm);
         else
         {
-            Console.WriteLine($"\nFound {results.Count} car(s) from {make}:");
+            Console.WriteLine($"\nFound {results.Count} car(s) from {searchTerm}:");
+            Console.WriteLine(Car.GetTableHeader());
             foreach (var car in results)
             {
                 Console.WriteLine(car);
             }
+            Console.WriteLine(Car.GetTableFooter());
         }
     }
 
     private static void ViewAllCars()
     {
         Console.WriteLine("\nList of Cars:");
-        if (!cars.Any())
+        if (cars.Count == 0)
             Console.WriteLine("No cars available.");
         else
         {
-            foreach (var car in cars.OrderBy(c => c.Make).ThenBy(c => c.Model))
+            Console.WriteLine(Car.GetTableHeader());
+            foreach (var car in cars)
             {
                 Console.WriteLine(car);
             }
+            Console.WriteLine(Car.GetTableFooter());
         }
     }
 
     private static void AddCar()
     {
         Console.WriteLine("\nAdding new car...");
-        Console.Write("Enter make: ");
-        string make = Console.ReadLine();
-        Console.Write("Enter model: ");
-        string model = Console.ReadLine();
-        Console.Write("Enter year: ");
-        if (!int.TryParse(Console.ReadLine(), out int year) || year > DateTime.Now.Year + 1)
+        string make;
+        while (true)
         {
-            Console.WriteLine("Invalid year. Car not added.");
-            return;
+            Console.Write("Enter Make (Example: Toyota, Honda): ");
+            make = Console.ReadLine();
+        
+            if (!string.IsNullOrWhiteSpace(make))
+            {
+                break;
+            }
+            Console.WriteLine("Make cannot be empty. Please try again!");
         }
-        Console.Write("Enter type (0 for Electric, 1 for Fuel): ");
-        if (!Enum.TryParse(Console.ReadLine(), out CarType type) || !Enum.IsDefined(typeof(CarType), type))
+        
+        string model;
+        while (true)
         {
-            Console.WriteLine("Invalid type. Car not added.");
-            return;
+            Console.Write("Enter Model (Example: Camry, Civic): ");
+            model = Console.ReadLine();
+        
+            if (!string.IsNullOrWhiteSpace(model))
+            {
+                break;
+            }
+            Console.WriteLine("Make cannot be empty. Please try again!");
         }
+        
+        int year;
+        while (true)
+        {
+            Console.Write($"Enter Year: ");
+            var yearInput = Console.ReadLine();
+        
+            if (int.TryParse(yearInput, out year))
+            {
+                if (!string.IsNullOrWhiteSpace(model))
+                {
+                    break;
+                }
+                Console.WriteLine("Year cannot be empty. Please try again!");
+            }
+            else
+            {
+                Console.WriteLine("Year must be a number. Please try again!");
+            }
+        }
+        CarType type;
+        while (true)
+        {
+            Console.Write("Enter type (0 for Electric, 1 for Fuel): ");
+            var typeInput = Console.ReadLine();
+        
+            if (Enum.TryParse(typeInput, out type))
+            {
+                break;
+            }
+            Console.WriteLine("Invalid type. Please enter 0 for Electric or 1 for Fuel!");
+        }
+
         cars.Add(new Car { Make = make, Model = model, Year = year, Type = type });
         Console.WriteLine("Car added successfully!");
     }
 
-    static void DisplayMenu()
+    private static void DisplayMenu()
     {
         Console.WriteLine("========== Menu ==========");
         Console.WriteLine("1. Add a car");

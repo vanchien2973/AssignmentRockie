@@ -15,6 +15,18 @@ class Car
     
     public override string ToString()
     {
-        return $"{Year} | {Make} | {Model} | ({Type})";
+        return $"| {Year,-6} | {Make,-10} | {Model,-20} | {Type,-8} |";
+    }
+
+    public static string GetTableHeader()
+    {
+        return new string('-', 55) + "\n" +
+               $"| {"Year",-6} | {"Make",-10} | {"Model",-20} | {"Type",-8} |\n" +
+               new string('-', 55);
+    }
+
+    public static string GetTableFooter()
+    {
+        return new string('-', 55);
     }
 }
