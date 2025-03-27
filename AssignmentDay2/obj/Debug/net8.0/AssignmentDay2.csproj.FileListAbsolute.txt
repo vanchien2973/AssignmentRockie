@@ -1,0 +1,15 @@
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/bin/Debug/net8.0/AssignmentDay2
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/bin/Debug/net8.0/AssignmentDay2.deps.json
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/bin/Debug/net8.0/AssignmentDay2.runtimeconfig.json
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/bin/Debug/net8.0/AssignmentDay2.dll
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/bin/Debug/net8.0/AssignmentDay2.pdb
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/AssignmentDay2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/AssignmentDay2.AssemblyInfoInputs.cache
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/AssignmentDay2.AssemblyInfo.cs
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/AssignmentDay2.csproj.CoreCompileInputs.cache
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/AssignmentDay2.sourcelink.json
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/AssignmentDay2.dll
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/refint/AssignmentDay2.dll
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/AssignmentDay2.pdb
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/AssignmentDay2.genruntimeconfig.cache
+/Users/vanchienn_/RiderProjects/AssignmentRockie/AssignmentDay2/obj/Debug/net8.0/ref/AssignmentDay2.dll
