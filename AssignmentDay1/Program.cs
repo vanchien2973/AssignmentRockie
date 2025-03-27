@@ -69,12 +69,15 @@ class Program
 
     private static void FilterCarByType()
     {
-        Console.Write("\nEnter type to filter (0 for Electric, 1 for Fuel): ");
-        if (!Enum.TryParse(Console.ReadLine(), out CarType type))
+        Console.Write("\nEnter type to filter (Electric or Fuel): ");
+        var typeInput = Console.ReadLine();
+        
+        if (!Enum.TryParse(typeInput, true, out CarType type) || !Enum.IsDefined(typeof(CarType), type))
         {
-            Console.WriteLine("Invalid type.");
+            Console.WriteLine("Invalid type. Please enter either 'Electric' or 'Fuel'.");
             return;
         }
+        
         var filteredCars = cars.Where(car => car.Type == type).ToList();
         DisplayCars(filteredCars, $"Found {filteredCars.Count} {type} car(s):");
     }
@@ -88,12 +91,12 @@ class Program
         }
 
         Console.WriteLine($"\n{title}");
-        Console.WriteLine(Car.GetTableHeader());
+        Console.WriteLine(CarTableHelper.GetTableHeader());
         foreach (var car in carsToDisplay)
         {
             Console.WriteLine(car);
         }
-        Console.WriteLine(Car.GetTableFooter());
+        Console.WriteLine(CarTableHelper.GetTableFooter());
     }
     
     private static void SearchCarByMake()
@@ -106,34 +109,12 @@ class Program
             return;
         }
         var results = cars.Where(c => c.Make.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
-        if (results.Count == 0)
-            Console.WriteLine("No cars found with the make '{0}'.", searchTerm);
-        else
-        {
-            Console.WriteLine($"\nFound {results.Count} car(s) from {searchTerm}:");
-            Console.WriteLine(Car.GetTableHeader());
-            foreach (var car in results)
-            {
-                Console.WriteLine(car);
-            }
-            Console.WriteLine(Car.GetTableFooter());
-        }
+        DisplayCars(results, $"Found {results.Count} car(s) from {searchTerm}:");
     }
 
     private static void ViewAllCars()
     {
-        Console.WriteLine("\nList of Cars:");
-        if (cars.Count == 0)
-            Console.WriteLine("No cars available.");
-        else
-        {
-            Console.WriteLine(Car.GetTableHeader());
-            foreach (var car in cars)
-            {
-                Console.WriteLine(car);
-            }
-            Console.WriteLine(Car.GetTableFooter());
-        }
+        DisplayCars(cars, "List of Cars:");
     }
 
     private static void AddCar()
@@ -162,39 +143,33 @@ class Program
             {
                 break;
             }
-            Console.WriteLine("Make cannot be empty. Please try again!");
+            Console.WriteLine("Model cannot be empty. Please try again!");
         }
         
         int year;
         while (true)
         {
-            Console.Write($"Enter Year: ");
+            Console.Write("Enter Year: ");
             var yearInput = Console.ReadLine();
         
-            if (int.TryParse(yearInput, out year))
-            {
-                if (!string.IsNullOrWhiteSpace(model))
-                {
-                    break;
-                }
-                Console.WriteLine("Year cannot be empty. Please try again!");
-            }
-            else
-            {
-                Console.WriteLine("Year must be a number. Please try again!");
-            }
-        }
-        CarType type;
-        while (true)
-        {
-            Console.Write("Enter type (0 for Electric, 1 for Fuel): ");
-            var typeInput = Console.ReadLine();
-        
-            if (Enum.TryParse(typeInput, out type))
+            if (int.TryParse(yearInput, out year) && year > 0)
             {
                 break;
             }
-            Console.WriteLine("Invalid type. Please enter 0 for Electric or 1 for Fuel!");
+            Console.WriteLine("Year must be a positive number. Please try again!");
+        }
+
+        CarType type;
+        while (true)
+        {
+            Console.Write("Enter type (Electric or Fuel): ");
+            var typeInput = Console.ReadLine();
+        
+            if (Enum.TryParse(typeInput, true, out type) && Enum.IsDefined(typeof(CarType), type))
+            {
+                break;
+            }
+            Console.WriteLine("Invalid type. Please enter either 'Electric' or 'Fuel'!");
         }
 
         cars.Add(new Car { Make = make, Model = model, Year = year, Type = type });

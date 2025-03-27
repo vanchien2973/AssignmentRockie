@@ -17,7 +17,10 @@ class Car
     {
         return $"| {Year,-6} | {Make,-10} | {Model,-20} | {Type,-8} |";
     }
+}
 
+static class CarTableHelper
+{
     public static string GetTableHeader()
     {
         return new string('-', 55) + "\n" +
