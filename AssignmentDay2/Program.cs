@@ -1,4 +1,5 @@
-﻿using DefaultNamespace;
+﻿using System.Runtime.InteropServices;
+using DefaultNamespace;
 
 namespace AssignmentDay2;
 
@@ -71,7 +72,7 @@ class Program
     {
         while (true)
         {
-            var input = Console.ReadLine()?.ToUpper();
+            var input = Console.ReadLine()?.Trim().ToUpper();
             if (input is "Y" or "N")
                 return input;
             Console.Write("Invalid input! Please enter 'Y' or 'N': ");
@@ -96,7 +97,7 @@ class Program
         while (true)
         {
             Console.Write("Is this a FuelCar or ElectricCar? (F/E): ");
-            var carType = Console.ReadLine()?.ToUpper();
+            var carType = Console.ReadLine()?.Trim().ToUpper();
 
             switch (carType)
             {
