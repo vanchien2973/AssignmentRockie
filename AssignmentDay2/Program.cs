@@ -9,31 +9,8 @@ class Program
     {
         try
         {
-            string make;
-            while (true)
-            {
-                Console.Write("Enter car make: ");
-                make = Console.ReadLine();
-        
-                if (!string.IsNullOrWhiteSpace(make))
-                {
-                    break;
-                }
-                Console.WriteLine("Car make cannot be empty. Please try again!");
-            }
-
-            string model;
-            while (true)
-            {
-                Console.Write("Enter car model: ");
-                model = Console.ReadLine();
-        
-                if (!string.IsNullOrWhiteSpace(model))
-                {
-                    break;
-                }
-                Console.WriteLine("Car model cannot be empty. Please try again!");
-            }
+            string make = GetNonEmptyInput("Enter car make: ", "Car make cannot be empty. Please try again!");
+            string model = GetNonEmptyInput("Enter car model: ", "Car model cannot be empty. Please try again!");
             
             var year = GetValidYear();
             var lastMaintenanceDate = GetValidMaintenanceDate();
@@ -44,8 +21,8 @@ class Program
             var choice = GetYesNoInput();
             if (choice != "Y") return;
             
-            var refuelChargeTime = GetValidDateTime();
-            ProcessRefuelOrCharge(car, refuelChargeTime);
+            var operationDate = GetValidDateTime();
+            ProcessRefuelOrCharge(car, operationDate);
         }
         catch (Exception ex)
         {
@@ -53,15 +30,30 @@ class Program
         }
     }
 
-    private static void ProcessRefuelOrCharge(Car car, DateTime refuelChargeTime)
+    private static string GetNonEmptyInput(string prompt, string errorMessage)
+    {
+        while (true)
+        {
+            Console.Write(prompt);
+            string input = Console.ReadLine();
+        
+            if (!string.IsNullOrWhiteSpace(input))
+            {
+                return input;
+            }
+            Console.WriteLine(errorMessage);
+        }
+    }
+
+    private static void ProcessRefuelOrCharge(Car car, DateTime operationDate)
     {
         switch (car)
         {
-            case IFuelable fuelableCar:
-                fuelableCar.Refuel(refuelChargeTime);
+            case IFuelable fuelCar:
+                fuelCar.Refuel(operationDate);
                 break;
-            case IChargable chargableCar:
-                chargableCar.Charge(refuelChargeTime);
+            case IChargable electricCar:
+                electricCar.Charge(operationDate);
                 break;
             default:
                 throw new InvalidOperationException("Unsupported car type");
@@ -92,22 +84,25 @@ class Program
         }
     }
 
-    private static Car GetCarType(string? make, string? model, int year, DateTime lastMaintenanceDate)
+    private static Car GetCarType(string make, string model, int year, DateTime lastMaintenanceDate)
     {
         while (true)
         {
             Console.Write("Is this a FuelCar or ElectricCar? (F/E): ");
             var carType = Console.ReadLine()?.Trim().ToUpper();
 
-            switch (carType)
+            try
             {
-                case "F":
-                    return new FuelCar(make, model, year, lastMaintenanceDate);
-                case "E":
-                    return new ElectricCar(make, model, year, lastMaintenanceDate);
-                default:
-                    Console.WriteLine("Invalid input! Please enter 'F' for FuelCar or 'E' for ElectricCar.");
-                    break;
+                return carType switch
+                {
+                    "F" => new FuelCar(make, model, year, lastMaintenanceDate),
+                    "E" => new ElectricCar(make, model, year, lastMaintenanceDate),
+                    _ => throw new ArgumentException("Invalid input! Please enter 'F' for FuelCar or 'E' for ElectricCar.")
+                };
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }

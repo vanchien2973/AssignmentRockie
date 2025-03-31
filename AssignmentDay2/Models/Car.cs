@@ -7,7 +7,6 @@ public abstract class Car
     public int Year { get; set; }
     public DateTime LastMaintenanceDate { get; set; }
     public DateTime NextMaintenanceDate { get; private set; }
-    // public List<string> History { get; } = new List<string>();
     
     public Car(string make, string model, int year, DateTime lastMaintenanceDate)
     {
@@ -15,16 +14,16 @@ public abstract class Car
         Model = model;
         Year = year;
         LastMaintenanceDate = lastMaintenanceDate;
-        ScheduleMaintenance();
     }
 
-    private void ScheduleMaintenance()
+    public void ScheduleMaintenance()
     {
         NextMaintenanceDate = LastMaintenanceDate.AddMonths(6);
     }
 
     public virtual void DisplayDetails()
     {
+        ScheduleMaintenance();
         Console.WriteLine($"\nCar: {Make} {Model} ({Year})");
         Console.WriteLine($"Last Maintenance: {LastMaintenanceDate:yyyy-MM-dd}");
         Console.WriteLine($"Next Maintenance: {NextMaintenanceDate:yyyy-MM-dd}");
