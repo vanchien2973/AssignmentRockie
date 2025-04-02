@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/MVC_NET_Core_Assignment_2.props" />
+</Project>

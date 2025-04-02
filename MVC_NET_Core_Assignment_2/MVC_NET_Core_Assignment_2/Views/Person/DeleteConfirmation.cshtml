@@ -1,0 +1,15 @@
+@model MVC_NET_Core_Assignment_1.DTOs.PersonDto
+
+@{
+    ViewData["Title"] = "Delete Confirmation";
+}
+
+<h1>Delete Confirmation</h1>
+
+<div class="alert alert-success">
+    Person <strong>@Model.FullName</strong> was removed from the list successfully!
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

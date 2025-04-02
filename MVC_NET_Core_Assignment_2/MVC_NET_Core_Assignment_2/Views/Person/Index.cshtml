@@ -1,0 +1,130 @@
+@model MVC_NET_Core_Assignment_1.Helpers.PaginatedList<MVC_NET_Core_Assignment_1.DTOs.PersonDto>
+
+@{
+    ViewData["Title"] = "Rookies List";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="bi bi-people"></i> Rookies List</h1>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-lg"></i> Create New
+    </a>
+</div>
+
+<div class="filter-section">
+    <h5><i class="bi bi-funnel"></i>Actions</h5>
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <a asp-controller="Person" asp-action="MaleMembers" class="btn btn-outline-primary btn-block">
+                <i class="bi bi-gender-male"></i> Male Members
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a asp-controller="Person" asp-action="GetOldestMember" class="btn btn-outline-primary btn-block">
+                <i class="bi bi-person-hearts"></i> Oldest Member
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a asp-controller="Person" asp-action="GetFullNames" class="btn btn-outline-primary btn-block">
+                <i class="bi bi-card-heading"></i> Full Names
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a asp-controller="Person" asp-action="FilterByBirthYear" class="btn btn-outline-primary btn-block">
+                <i class="bi bi-calendar"></i> Filter By Birth Year
+            </a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <a asp-controller="Person" asp-action="ExportToExcel" class="btn btn-success btn-block">
+                <i class="bi bi-file-earmark-excel"></i> Export To Excel
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-light">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Age</th>
+                    <th>Phone Number</th>
+                    <th>Birth Place</th>
+                    <th>Graduated</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var person in Model)
+                {
+                    <tr>
+                        <td>@person.FullName</td>
+                        <td>
+                            @if (person.Gender == "Male")
+                            {
+                                <span><i class="bi bi-gender-male"></i> @person.Gender</span>
+                            }
+                            else
+                            {
+                                <span><i class="bi bi-gender-female"></i> @person.Gender</span>
+                            }
+                        </td>
+                        <td>@person.DateOfBirth.ToString("dd/MM/yyyy")</td>
+                        <td><span>@person.Age</span></td>
+                        <td>@person.PhoneNumber</td>
+                        <td>@person.BirthPlace</td>
+                        <td>
+                            @if (person.IsGraduated)
+                            {
+                                <span><i class="bi bi-check-circle"></i> Yes</span>
+                            }
+                            else
+                            {
+                                <span><i class="bi bi-x-circle"></i> No</span>
+                            }
+                        </td>
+                        <td class="action-buttons">
+                            <a asp-action="Details" asp-route-id="@person.Id" class="btn btn-info" title="Details">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@person.Id" class="btn btn-warning" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@person.Id" class="btn btn-danger" title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <div>
+                <span>Showing @((Model.PageIndex - 1) * 10 + 1) to @((Model.PageIndex - 1) * 10 + Model.Count) of @Model.TotalCount entries</span>
+            </div>
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item @(!Model.HasPreviousPage ? "disabled" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+                    </li>
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                            <a class="page-link" asp-action="Index" asp-route-pageIndex="@i">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(!Model.HasNextPage ? "disabled" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
