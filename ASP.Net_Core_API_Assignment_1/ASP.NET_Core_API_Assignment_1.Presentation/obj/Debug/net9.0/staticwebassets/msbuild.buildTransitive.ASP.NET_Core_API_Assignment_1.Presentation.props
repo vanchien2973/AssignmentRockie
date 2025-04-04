@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/ASP.NET_Core_API_Assignment_1.Presentation.props" />
+</Project>

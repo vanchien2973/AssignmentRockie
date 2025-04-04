@@ -1,0 +1,16 @@
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/bin/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.deps.json
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/bin/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.dll
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/bin/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.pdb
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/bin/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Domain.dll
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/bin/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Domain.pdb
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.csproj.AssemblyReference.cache
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.AssemblyInfoInputs.cache
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.AssemblyInfo.cs
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.csproj.CoreCompileInputs.cache
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.sourcelink.json
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_.02E1E3BD.Up2Date
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.dll
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/refint/ASP.NET_Core_API_Assignment_1.Application.dll
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ASP.NET_Core_API_Assignment_1.Application.pdb
+/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/obj/Debug/net9.0/ref/ASP.NET_Core_API_Assignment_1.Application.dll

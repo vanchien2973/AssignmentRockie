@@ -1,0 +1,101 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Domain/ASP.NET_Core_API_Assignment_1.Domain.csproj": {}
+  },
+  "projects": {
+    "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Domain/ASP.NET_Core_API_Assignment_1.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Domain/ASP.NET_Core_API_Assignment_1.Domain.csproj",
+        "projectName": "ASP.NET_Core_API_Assignment_1.Domain",
+        "projectPath": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Domain/ASP.NET_Core_API_Assignment_1.Domain.csproj",
+        "packagesPath": "/Users/vanchienn_/.nuget/packages/",
+        "outputPath": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/vanchienn_/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
