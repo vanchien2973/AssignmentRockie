@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I3yInRPTht4=",
+  "dgSpecHash": "42BHJ/5HRTk=",
   "success": true,
-  "projectFilePath": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj",
+  "projectFilePath": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.Net_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj",
   "expectedPackageFiles": [
     "/Users/vanchienn_/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/vanchienn_/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

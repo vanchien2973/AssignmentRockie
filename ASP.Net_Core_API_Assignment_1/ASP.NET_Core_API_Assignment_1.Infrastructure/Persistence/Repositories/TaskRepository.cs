@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using ASP.NET_Core_API_Assignment_1.Domain.Entities;
 using ASP.NET_Core_API_Assignment_1.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +50,13 @@ namespace ASP.NET_Core_API_Assignment_1.Infrastructure.Persistence.Repositories
 
             context.Tasks.RemoveRange(tasksToDelete);
             await context.SaveChangesAsync();
+        }
+
+        public async Task<bool> TitleExistsAsync(string normalizedTitle)
+        {
+            return await context.Tasks
+                .AnyAsync(t => 
+                    Regex.Replace(t.Title, @"\s+", " ").Trim().ToLower() == normalizedTitle);
         }
     }
 }

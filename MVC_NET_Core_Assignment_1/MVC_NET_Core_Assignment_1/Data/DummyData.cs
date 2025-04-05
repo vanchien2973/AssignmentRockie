@@ -4,12 +4,13 @@ namespace MVC_NET_Core_Assignment_1.Data;
 
 public class DummyData : IDummyData
 {
-    public List<Person?> GetDummyData()
+    public IEnumerable<Person?> GetDummyData()
     {
         return
         [
             new Person
             {
+                Id = 1,
                 FirstName = "Phuong",
                 LastName = "Nguyen Nam",
                 Gender = "Male",
@@ -21,6 +22,7 @@ public class DummyData : IDummyData
 
             new Person
             {
+                Id = 2,
                 FirstName = "Nam",
                 LastName = "Nguyen Thanh",
                 Gender = "Male",
@@ -32,6 +34,7 @@ public class DummyData : IDummyData
 
             new Person
             {
+                Id = 3,
                 FirstName = "Son",
                 LastName = "Do Hong",
                 Gender = "Male",
@@ -43,6 +46,7 @@ public class DummyData : IDummyData
 
             new Person
             {
+                Id = 4,
                 FirstName = "Huy",
                 LastName = "Nguyen Duc",
                 Gender = "Male",
@@ -54,6 +58,7 @@ public class DummyData : IDummyData
 
             new Person
             {
+                Id = 5,
                 FirstName = "Hoang",
                 LastName = "Phuong Viet",
                 Gender = "Male",
@@ -65,6 +70,7 @@ public class DummyData : IDummyData
 
             new Person
             {
+                Id = 6,
                 FirstName = "Long",
                 LastName = "Lai Quoc",
                 Gender = "Male",
@@ -76,6 +82,7 @@ public class DummyData : IDummyData
 
             new Person
             {
+                Id = 7,
                 FirstName = "Thanh",
                 LastName = "Tran Chi",
                 Gender = "Male",

@@ -7,9 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IDummyData, DummyData>();
-builder.Services.AddScoped<IRookiesRepository, RookiesRepository>();
-builder.Services.AddScoped<IRookiesService, RookiesService>();
+builder.Services.AddSingleton<IDummyData, DummyData>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
+builder.Services.AddScoped<IPersonService, PersonService>();
 
 // Configure HTTPS port explicitly
 builder.WebHost.ConfigureKestrel(options =>
@@ -38,7 +38,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "nashtech",
-    pattern: "NashTech/{controller=Rookies}/{action=Index}/{id?}"
+    pattern: "NashTech/{controller=Person}/{action=Index}/{id?}"
 );
 
 app.Run();

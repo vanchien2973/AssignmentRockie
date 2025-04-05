@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_Core_API_Assignment_1.Infrastructure.Persistence;
 
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options), IApplicationDbContext
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {
     public DbSet<TaskItem> Tasks { get; set; }
 

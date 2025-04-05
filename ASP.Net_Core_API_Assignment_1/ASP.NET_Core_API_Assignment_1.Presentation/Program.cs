@@ -1,6 +1,5 @@
-
-
-using System.Reflection;
+using System.Text.Json;
+using ASP.NET_Core_API_Assignment_1.Application.DTOs;
 using ASP.NET_Core_API_Assignment_1.Application.Interfaces;
 using ASP.NET_Core_API_Assignment_1.Application.Mappings;
 using ASP.NET_Core_API_Assignment_1.Application.Services;
@@ -21,6 +20,8 @@ builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddAutoMapper(typeof(TaskProfile).Assembly);
 
 builder.Services.AddControllers();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

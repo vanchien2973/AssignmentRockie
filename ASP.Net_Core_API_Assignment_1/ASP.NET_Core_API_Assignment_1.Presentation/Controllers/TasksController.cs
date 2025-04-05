@@ -1,4 +1,5 @@
 using ASP.NET_Core_API_Assignment_1.Application.DTOs;
+using ASP.NET_Core_API_Assignment_1.Application.DTOs.TaskItem;
 using ASP.NET_Core_API_Assignment_1.Application.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,11 @@ namespace ASP.NET_Core_API_Assignment_1.Presentation.Controllers;
 [Produces("application/json")]
 public class TasksController(
     ITaskService taskService,
-    IMapper mapper,
+    // IMapper mapper,
     ILogger<TasksController> logger)
     : ControllerBase
 {
-    private readonly IMapper _mapper = mapper;
+    // private readonly IMapper _mapper = mapper;
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<TaskItemDto>))]
@@ -24,7 +25,7 @@ public class TasksController(
         return Ok(tasks);
     }
     
-    [HttpGet("{id}")]
+    [HttpGet("{id:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TaskItemDto))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<TaskItemDto>> GetTaskById(Guid id)
@@ -42,13 +43,17 @@ public class TasksController(
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<TaskItemDto>> CreateTask([FromBody] CreateTaskItemDto taskItemDto)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         try
         {
             var createdTask = await taskService.CreateTaskAsync(taskItemDto);
             
             return CreatedAtAction(
                 actionName: nameof(GetTaskById),
-                controllerName: null,
                 routeValues: new { id = createdTask.Id },
                 value: createdTask);
         }
@@ -59,12 +64,17 @@ public class TasksController(
         }
     }
     
-    [HttpPut("{id:int}")]
+    [HttpPut("{id:guid}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateTask(Guid id, [FromBody] UpdateTaskItemDto taskItemDto)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         try
         {
             await taskService.UpdateTaskAsync(id, taskItemDto);
@@ -81,7 +91,7 @@ public class TasksController(
         }
     }
     
-    [HttpDelete("{id:int}")]
+    [HttpDelete("{id:guid}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteTask(Guid id)
@@ -102,6 +112,11 @@ public class TasksController(
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> BulkAddTasks([FromBody] BulkTaskItemDto bulkTaskItemDto)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         try
         {
             await taskService.BulkAddTasksAsync(bulkTaskItemDto);
@@ -119,6 +134,11 @@ public class TasksController(
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> BulkDeleteTasks([FromBody] BulkDeleteTaskItemDto bulkDeleteTaskItemDto)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         try
         {
             await taskService.BulkDeleteTasksAsync(bulkDeleteTaskItemDto);

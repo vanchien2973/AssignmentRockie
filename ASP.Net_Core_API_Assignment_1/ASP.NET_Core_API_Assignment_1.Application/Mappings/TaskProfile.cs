@@ -1,4 +1,5 @@
 using ASP.NET_Core_API_Assignment_1.Application.DTOs;
+using ASP.NET_Core_API_Assignment_1.Application.DTOs.TaskItem;
 using ASP.NET_Core_API_Assignment_1.Domain.Entities;
 using AutoMapper;
 

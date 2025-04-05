@@ -11,4 +11,5 @@ public interface ITaskRepository
     void Update(TaskItem? task);
     void Delete(TaskItem? task);
     Task DeleteRangeAsync(IEnumerable<Guid> taskIds);
+    Task<bool> TitleExistsAsync(string normalizedTitle);
 }

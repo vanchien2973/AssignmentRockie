@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASP.NET_Core_API_Assignment_1.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f92ccfe4c6d83d656f308b7f45877ef551d67a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4a05a1badb4cacd9f95ada81315ccf786d6e70e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASP.NET_Core_API_Assignment_1.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASP.NET_Core_API_Assignment_1.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

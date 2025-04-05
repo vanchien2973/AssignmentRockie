@@ -2,7 +2,7 @@ using MVC_NET_Core_Assignment_1.Models;
 
 namespace MVC_NET_Core_Assignment_1.Services;
 
-public interface IRookiesService
+public interface IPersonService
 {
     IEnumerable<Person?> GetMaleMembers();
     Person? GetOldestMember();

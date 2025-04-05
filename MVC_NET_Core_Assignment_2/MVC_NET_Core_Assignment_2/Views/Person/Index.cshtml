@@ -114,7 +114,7 @@
                     <li class="page-item @(!Model.HasPreviousPage ? "disabled" : "")">
                         <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
                     </li>
-                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    @for (var i = 1; i <= Model.TotalPages; i++)
                     {
                         <li class="page-item @(i == Model.PageIndex ? "active" : "")">
                             <a class="page-link" asp-action="Index" asp-route-pageIndex="@i">@i</a>

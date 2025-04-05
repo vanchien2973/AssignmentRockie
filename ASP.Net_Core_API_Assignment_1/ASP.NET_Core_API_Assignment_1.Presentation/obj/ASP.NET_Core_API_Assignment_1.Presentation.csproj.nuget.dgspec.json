@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj": {}
+    "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.Net_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj": {}
   },
   "projects": {
     "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Application/ASP.NET_Core_API_Assignment_1.Application.csproj": {
@@ -291,14 +291,14 @@
         }
       }
     },
-    "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj": {
+    "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.Net_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj",
+        "projectUniqueName": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.Net_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj",
         "projectName": "ASP.NET_Core_API_Assignment_1.Presentation",
-        "projectPath": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj",
+        "projectPath": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.Net_Core_API_Assignment_1.Presentation/ASP.NET_Core_API_Assignment_1.Presentation.csproj",
         "packagesPath": "/Users/vanchienn_/.nuget/packages/",
-        "outputPath": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.NET_Core_API_Assignment_1.Presentation/obj/",
+        "outputPath": "/Users/vanchienn_/RiderProjects/AssignmentRockie/ASP.NET_Core_API_Assignment_1/ASP.Net_Core_API_Assignment_1.Presentation/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/vanchienn_/.nuget/NuGet/NuGet.Config"
