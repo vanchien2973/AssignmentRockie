@@ -1,0 +1,127 @@
+# ASP .NET Core API Assignment 1
+
+## 🚀 Công nghệ sử dụng
+- ASP.NET Core 9.0
+- Entity Framework Core
+- Swagger/OpenAPI
+- InMemoryDatabase (cho môi trường development)
+
+## ⚙️ Cài đặt và chạy project
+
+### Yêu cầu hệ thống
+- .NET 9 SDK
+- Visual Studio hoặc VS Code
+
+### Các bước chạy project
+
+1. Clone repository:
+bash
+git clone https://github.com/vanchien2973/AssignmentRockie.git
+cd ASP.Net_Core_API_Assignment_1
+
+2. Khôi phục các packages:
+bash
+dotnet restore
+
+3. Chạy ứng dụng:
+bash
+dotnet run --project ASP.Net_Core_API_Assignment_1.Presentation
+
+4. Truy cập Swagger UI tại:
+http://localhost:5237/swagger
+
+## 🧪 Test data mẫu
+
+### Dữ liệu khởi tạo
+Khi ứng dụng chạy lần đầu, hệ thống sẽ tự động tạo 3 task mẫu:
+[
+  {
+    "id": "e953e674-2d25-4a7c-9509-d016d76d74c2",
+    "title": "Complete API Assignment",
+    "isCompleted": false
+  },
+  {
+    "id": "23f4d9d4-3041-4f60-9eee-7fb4ea3fea14",
+    "title": "Review Clean Architecture",
+    "isCompleted": true
+  },
+  {
+    "id": "aaabe322-0bd1-428d-a68c-dbaae4fe9210",
+    "title": "Prepare Presentation",
+    "isCompleted": false
+  }
+]
+
+### Các request test
+
+#### 1. Tạo task mới
+**Endpoint**: POST `/api/tasks`json
+{
+  "title": "Code review",
+  "isCompleted": false
+}
+
+#### 2. Lấy danh sách task
+**Endpoint**: GET `/api/tasks`
+
+#### 3. Cập nhật task
+**Endpoint**: PUT `/api/tasks/{id}`json
+{
+  "title": "Code review (đã hoàn thành)",
+  "isCompleted": true
+}
+
+#### 4. Thêm nhiều task cùng lúc
+**Endpoint**: POST `/api/tasks/bulk`json
+{
+  "tasks": [
+    {
+      "title": "Fix bug login",
+      "isCompleted": false
+    },
+    {
+      "title": "Update documentation",
+      "isCompleted": true
+    }
+  ]
+}
+
+#### 5. Xóa nhiều task
+**Endpoint**: DELETE `/api/tasks/bulk`json
+{
+  "taskIds": ["id1", "id2"]
+}
+
+## 🔍 Validation rules
+1. **Title**:
+   - Bắt buộc nhập
+   - Tối đa 200 ký tự
+   - Không được trùng (kể cả khi khác hoa thường hoặc khoảng trắng)
+
+2. **Bulk operations**:
+   - Phải có ít nhất 1 task
+   - Không được có title trùng nhau trong cùng request
+
+## 🛠️ Cấu trúc project
+TaskManagement/
+├── Presentation/                # Presentation layer
+├── Application/        # Business logic
+│   ├── DTOs/           # Data transfer objects
+│   ├── Validators/     # Validation rules
+│   └── Services/       # Application services
+├── Domain/             # Core business logic
+│   ├── Entities/       # Domain models
+│   └── Interfaces/     # Repository contracts
+└── Infrastructure/     # Data access
+    ├── Persistence/    # Database context
+    └── Repositories/   # Repository implementations
+
+## 📜 API Documentation
+Xem đầy đủ tài liệu API tại Swagger UI khi chạy ứng dụng:
+http://localhost:5000/swagger
+
+## 🐛 Xử lý lỗi
+API trả về các mã lỗi HTTP phổ biến:
+- 400: Request không hợp lệ
+- 404: Không tìm thấy resource
+- 500: Lỗi server
