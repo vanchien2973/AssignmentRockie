@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/ASP.NET_Core_API_Assignment_1.Presentation.props" />
-</Project>
