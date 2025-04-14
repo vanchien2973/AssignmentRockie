@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_NET_Core_Assignment_2", "MVC_NET_Core_Assignment_2\MVC_NET_Core_Assignment_2.csproj", "{20B7B395-0514-4E7E-B2E4-3BE05A43A248}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_NET_Core_Assignment_2.UnitTests", "MVC_NET_Core_Assignment_2.UnitTests\MVC_NET_Core_Assignment_2.UnitTests.csproj", "{1415E9A0-1840-43AD-9E2A-3F46C20AAB5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{20B7B395-0514-4E7E-B2E4-3BE05A43A248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20B7B395-0514-4E7E-B2E4-3BE05A43A248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20B7B395-0514-4E7E-B2E4-3BE05A43A248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1415E9A0-1840-43AD-9E2A-3F46C20AAB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1415E9A0-1840-43AD-9E2A-3F46C20AAB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1415E9A0-1840-43AD-9E2A-3F46C20AAB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1415E9A0-1840-43AD-9E2A-3F46C20AAB5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

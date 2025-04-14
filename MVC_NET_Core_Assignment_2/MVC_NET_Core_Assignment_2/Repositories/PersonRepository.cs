@@ -6,13 +6,13 @@ namespace MVC_NET_Core_Assignment_1.Repositories;
 
 public class PersonRepository : IPersonRepository
 {
-    private static readonly List<Person> _people = [];
-    private static int _nextId = 1;
+    private readonly List<Person> _people = [];
+    private int _nextId = 1;
 
     public PersonRepository(IDummyData dummyData)
     {
-        if (_people.Count != 0) return;
-        _people.AddRange(dummyData.GetDummyData());
+        var dummyPeople = dummyData.GetDummyData();
+        _people.AddRange(dummyPeople);
         _nextId = _people.Count + 1;
     }
 
