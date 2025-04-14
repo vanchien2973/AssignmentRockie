@@ -23,6 +23,8 @@ public class PersonRepository : IPersonRepository
     public Person Create(Person person)
     {
         person.Id = _nextId++;
+        person.CreatedAt = DateTime.Now;
+        person.UpdatedAt = DateTime.Now;
         _people.Add(person);
         return person;
     }
@@ -39,6 +41,7 @@ public class PersonRepository : IPersonRepository
         existingPerson.PhoneNumber = person.PhoneNumber;
         existingPerson.BirthPlace = person.BirthPlace;
         existingPerson.IsGraduated = person.IsGraduated;
+        existingPerson.UpdatedAt = DateTime.Now;
         return existingPerson;
     }
 

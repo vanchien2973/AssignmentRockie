@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace MVC_NET_Core_Assignment_1.DTOs;
+namespace MVC_NET_Core_Assignment_1.DTOs.Person;
 
 public class PersonDto
 {
@@ -12,6 +10,8 @@ public class PersonDto
     public string PhoneNumber { get; set; }
     public string BirthPlace { get; set; }
     public bool IsGraduated { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
     public int Age => DateTime.Now.Year - DateOfBirth.Year;
     public string FullName => $"{LastName} {FirstName}";
 }

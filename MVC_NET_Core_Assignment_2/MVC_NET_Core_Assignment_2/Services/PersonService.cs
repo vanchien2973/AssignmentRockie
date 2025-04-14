@@ -1,6 +1,5 @@
-using System.Text;
 using ClosedXML.Excel;
-using MVC_NET_Core_Assignment_1.DTOs;
+using MVC_NET_Core_Assignment_1.DTOs.Person;
 using MVC_NET_Core_Assignment_1.Helpers;
 using MVC_NET_Core_Assignment_1.Models;
 using MVC_NET_Core_Assignment_1.Repositories.Interfaces;
@@ -10,7 +9,6 @@ namespace MVC_NET_Core_Assignment_1.Services;
 
 public class PersonService(IPersonRepository repository) : IPersonService
 {
-    // public IEnumerable<PersonDto> GetAll() => repository.GetAll().Select(p => MapToDto(p));
     public PaginatedList<PersonDto> GetPaginatedPeople(int pageIndex, int pageSize)
     {
         var people = repository.GetAll().Select(p => MapToDto(p));
@@ -24,13 +22,6 @@ public class PersonService(IPersonRepository repository) : IPersonService
             .Select(p => MapToDto(p));
         return PaginatedList<PersonDto>.Create(males, pageIndex, pageSize);
     }
-
-    // public IEnumerable<PersonDto> GetMaleMembers()
-    // {
-    //     return repository.GetAll()
-    //         .Where(p => p.Gender.Equals("Male", StringComparison.OrdinalIgnoreCase))
-    //         .Select(p => MapToDto(p));
-    // }
 
     public PersonDto? GetOldestMember()
     {
@@ -65,44 +56,64 @@ public class PersonService(IPersonRepository repository) : IPersonService
     {
         var people = repository.GetAll();
 
-        using (var workbook = new XLWorkbook())
+        using var workbook = new XLWorkbook();
+        var worksheet = workbook.Worksheets.Add("People");
+        var headerRow = worksheet.FirstRow();
+        headerRow.Cell(1).Value = "FirstName";
+        headerRow.Cell(2).Value = "LastName";
+        headerRow.Cell(3).Value = "Gender";
+        headerRow.Cell(4).Value = "DateOfBirth";
+        headerRow.Cell(5).Value = "PhoneNumber";
+        headerRow.Cell(6).Value = "BirthPlace";
+        headerRow.Cell(7).Value = "IsGraduated";
+        headerRow.Cell(8).Value = "CreatedAt";
+        headerRow.Cell(9).Value = "UpdatedAt";
+        headerRow.Style.Font.Bold = true;
+        headerRow.Style.Fill.BackgroundColor = XLColor.LightGray;
+
+        var row = 2;
+        foreach (var person in people)
         {
-            var worksheet = workbook.Worksheets.Add("People");
-            var headerRow = worksheet.FirstRow();
-            headerRow.Cell(1).Value = "FirstName";
-            headerRow.Cell(2).Value = "LastName";
-            headerRow.Cell(3).Value = "Gender";
-            headerRow.Cell(4).Value = "DateOfBirth";
-            headerRow.Cell(5).Value = "PhoneNumber";
-            headerRow.Cell(6).Value = "BirthPlace";
-            headerRow.Cell(7).Value = "IsGraduated";
-            headerRow.Style.Font.Bold = true;
-            headerRow.Style.Fill.BackgroundColor = XLColor.LightGray;
-
-            var row = 2;
-            foreach (var person in people)
-            {
-                worksheet.Cell(row, 1).Value = person.FirstName;
-                worksheet.Cell(row, 2).Value = person.LastName;
-                worksheet.Cell(row, 3).Value = person.Gender;
-                worksheet.Cell(row, 4).Value = person.DateOfBirth;
-                worksheet.Cell(row, 4).Style.DateFormat.Format = "yyyy-MM-dd";
-                worksheet.Cell(row, 5).Value = person.PhoneNumber;
-                worksheet.Cell(row, 6).Value = person.BirthPlace;
-                worksheet.Cell(row, 7).Value = person.IsGraduated ? "Yes" : "No";
-                row++;
-            }
-
-            worksheet.Columns().AdjustToContents();
-            using (var stream = new MemoryStream())
-            {
-                workbook.SaveAs(stream);
-                return stream.ToArray();
-            }
+            worksheet.Cell(row, 1).Value = person.FirstName;
+            worksheet.Cell(row, 2).Value = person.LastName;
+            worksheet.Cell(row, 3).Value = person.Gender;
+            worksheet.Cell(row, 4).Value = person.DateOfBirth;
+            worksheet.Cell(row, 4).Style.DateFormat.Format = "yyyy-MM-dd";
+            worksheet.Cell(row, 5).Value = person.PhoneNumber;
+            worksheet.Cell(row, 6).Value = person.BirthPlace;
+            worksheet.Cell(row, 7).Value = person.IsGraduated ? "Yes" : "No";
+            worksheet.Cell(row, 8).Value = person.CreatedAt;
+            worksheet.Cell(row, 8).Style.DateFormat.Format = "yyyy-MM-dd HH:mm:ss";
+            worksheet.Cell(row, 9).Value = person.UpdatedAt;
+            worksheet.Cell(row, 9).Style.DateFormat.Format = "yyyy-MM-dd HH:mm:ss";
+            row++;
         }
+
+        worksheet.Columns().AdjustToContents();
+        using var stream = new MemoryStream();
+        workbook.SaveAs(stream);
+        return stream.ToArray();
     }
 
     public PersonDto? GetById(int id) => repository.GetById(id) is Person p ? MapToDto(p) : null;
+
+    public PersonUpdateDto? GetForUpdate(int id)
+    {
+        var person = repository.GetById(id);
+        if (person == null) return null;
+
+        return new PersonUpdateDto
+        {
+            Id = person.Id,
+            FirstName = person.FirstName,
+            LastName = person.LastName,
+            Gender = person.Gender,
+            DateOfBirth = person.DateOfBirth,
+            PhoneNumber = person.PhoneNumber,
+            BirthPlace = person.BirthPlace,
+            IsGraduated = person.IsGraduated
+        };
+    }
 
     public PersonDto Create(PersonCreateDto personDto)
     {
@@ -121,6 +132,9 @@ public class PersonService(IPersonRepository repository) : IPersonService
 
     public PersonDto? Update(int id, PersonUpdateDto personDto)
     {
+        var existingPerson = repository.GetById(id);
+        if (existingPerson == null) return null;
+
         var person = new Person
         {
             Id = id,
@@ -130,7 +144,8 @@ public class PersonService(IPersonRepository repository) : IPersonService
             DateOfBirth = personDto.DateOfBirth,
             PhoneNumber = personDto.PhoneNumber,
             BirthPlace = personDto.BirthPlace,
-            IsGraduated = personDto.IsGraduated
+            IsGraduated = personDto.IsGraduated,
+            CreatedAt = existingPerson.CreatedAt
         };
         var updated = repository.Update(id, person);
         return updated != null ? MapToDto(updated) : null;
@@ -147,6 +162,8 @@ public class PersonService(IPersonRepository repository) : IPersonService
         DateOfBirth = person.DateOfBirth,
         PhoneNumber = person.PhoneNumber,
         BirthPlace = person.BirthPlace,
-        IsGraduated = person.IsGraduated
+        IsGraduated = person.IsGraduated,
+        CreatedAt = person.CreatedAt,
+        UpdatedAt = person.UpdatedAt
     };
 }

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MVC_NET_Core_Assignment_1.DTOs;
+namespace MVC_NET_Core_Assignment_1.DTOs.Person;
 
 public class PersonCreateDto
 {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MVC_NET_Core_Assignment_1.DTOs;
-using MVC_NET_Core_Assignment_1.Models;
+using MVC_NET_Core_Assignment_1.DTOs.Person;
 using MVC_NET_Core_Assignment_1.Services.Interfaces;
 
 namespace MVC_NET_Core_Assignment_1.Controllers
@@ -112,20 +112,9 @@ namespace MVC_NET_Core_Assignment_1.Controllers
         [HttpGet("Edit/{id:int}")]
         public IActionResult Edit(int id)
         {
-            var person = personService.GetById(id);
-            if (person == null) return NotFound();
-
-            var personUpdateDto = new PersonUpdateDto
-            {
-                Id = person.Id,
-                FirstName = person.FirstName,
-                LastName = person.LastName,
-                Gender = person.Gender,
-                DateOfBirth = person.DateOfBirth,
-                PhoneNumber = person.PhoneNumber,
-                BirthPlace = person.BirthPlace,
-                IsGraduated = person.IsGraduated
-            };
+            var personUpdateDto = personService.GetForUpdate(id);
+            if (personUpdateDto == null) return NotFound();
+            
             return View(personUpdateDto);
         }
 

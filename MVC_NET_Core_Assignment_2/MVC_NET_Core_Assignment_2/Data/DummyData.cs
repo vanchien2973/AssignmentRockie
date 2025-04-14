@@ -1,6 +1,4 @@
 using MVC_NET_Core_Assignment_1.Models;
-using System;
-using System.Collections.Generic;
 
 namespace MVC_NET_Core_Assignment_1.Data
 {
@@ -19,7 +17,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2001, 1, 22),
                     PhoneNumber = "0987678888",
                     BirthPlace = "Hanoi",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-100),
+                    UpdatedAt = DateTime.Now.AddDays(-50)
                 },
                 new Person
                 {
@@ -30,7 +30,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2000, 5, 15),
                     PhoneNumber = "0987654321",
                     BirthPlace = "Hai Phong",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-95),
+                    UpdatedAt = DateTime.Now.AddDays(-45)
                 },
                 new Person
                 {
@@ -41,7 +43,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2000, 11, 6),
                     PhoneNumber = "0987654321",
                     BirthPlace = "Hanoi",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-90),
+                    UpdatedAt = DateTime.Now.AddDays(-40)
                 },
                 new Person
                 {
@@ -52,7 +56,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1998, 8, 20),
                     PhoneNumber = "0987123456",
                     BirthPlace = "Da Nang",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-85),
+                    UpdatedAt = DateTime.Now.AddDays(-35)
                 },
                 new Person
                 {
@@ -63,7 +69,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1999, 2, 5),
                     PhoneNumber = "0987676543",
                     BirthPlace = "Hanoi",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-80),
+                    UpdatedAt = DateTime.Now.AddDays(-30)
                 },
                 new Person
                 {
@@ -74,7 +82,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2001, 3, 12),
                     PhoneNumber = "0987656789",
                     BirthPlace = "Hue",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-75),
+                    UpdatedAt = DateTime.Now.AddDays(-25)
                 },
                 new Person
                 {
@@ -85,7 +95,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2000, 9, 18),
                     PhoneNumber = "0987876543",
                     BirthPlace = "Hanoi",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-70),
+                    UpdatedAt = DateTime.Now.AddDays(-20)
                 },
                 new Person
                 {
@@ -96,7 +108,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1997, 7, 25),
                     PhoneNumber = "0987123123",
                     BirthPlace = "Nam Dinh",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-65),
+                    UpdatedAt = DateTime.Now.AddDays(-15)
                 },
                 new Person
                 {
@@ -107,7 +121,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1996, 4, 30),
                     PhoneNumber = "0987999888",
                     BirthPlace = "Hai Duong",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-60),
+                    UpdatedAt = DateTime.Now.AddDays(-10)
                 },
                 new Person
                 {
@@ -118,7 +134,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2002, 12, 3),
                     PhoneNumber = "0987654999",
                     BirthPlace = "Hanoi",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-55),
+                    UpdatedAt = DateTime.Now.AddDays(-5)
                 },
                 new Person
                 {
@@ -129,7 +147,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1995, 6, 10),
                     PhoneNumber = "0987111222",
                     BirthPlace = "Ho Chi Minh City",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-99),
+                    UpdatedAt = DateTime.Now.AddDays(-49)
                 },
                 new Person
                 {
@@ -140,7 +160,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1999, 10, 8),
                     PhoneNumber = "0987999111",
                     BirthPlace = "Hai Phong",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-94),
+                    UpdatedAt = DateTime.Now.AddDays(-44)
                 },
                 new Person
                 {
@@ -151,7 +173,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1998, 1, 29),
                     PhoneNumber = "0987222333",
                     BirthPlace = "Da Nang",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-89),
+                    UpdatedAt = DateTime.Now.AddDays(-39)
                 },
                 new Person
                 {
@@ -162,7 +186,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1997, 3, 21),
                     PhoneNumber = "0987555666",
                     BirthPlace = "Can Tho",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-84),
+                    UpdatedAt = DateTime.Now.AddDays(-34)
                 },
                 new Person
                 {
@@ -173,7 +199,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2000, 7, 14),
                     PhoneNumber = "0987666555",
                     BirthPlace = "Hue",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-79),
+                    UpdatedAt = DateTime.Now.AddDays(-29)
                 },
                 new Person
                 {
@@ -184,7 +212,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1996, 12, 19),
                     PhoneNumber = "0987888999",
                     BirthPlace = "Hanoi",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-74),
+                    UpdatedAt = DateTime.Now.AddDays(-24)
                 },
                 new Person
                 {
@@ -195,7 +225,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2001, 9, 5),
                     PhoneNumber = "0987000111",
                     BirthPlace = "Ho Chi Minh City",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-69),
+                    UpdatedAt = DateTime.Now.AddDays(-19)
                 },
                 new Person
                 {
@@ -206,7 +238,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1999, 5, 28),
                     PhoneNumber = "0987333444",
                     BirthPlace = "Da Nang",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-64),
+                    UpdatedAt = DateTime.Now.AddDays(-14)
                 },
                 new Person
                 {
@@ -217,7 +251,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2002, 2, 11),
                     PhoneNumber = "0987666777",
                     BirthPlace = "Can Tho",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-59),
+                    UpdatedAt = DateTime.Now.AddDays(-9)
                 },
                 new Person
                 {
@@ -228,7 +264,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1995, 11, 17),
                     PhoneNumber = "0987222666",
                     BirthPlace = "Hai Phong",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-54),
+                    UpdatedAt = DateTime.Now.AddDays(-4)
                 },
                 new Person
                 {
@@ -239,7 +277,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1997, 8, 26),
                     PhoneNumber = "0987333222",
                     BirthPlace = "Ho Chi Minh City",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-98),
+                    UpdatedAt = DateTime.Now.AddDays(-48)
                 },
                 new Person
                 {
@@ -250,7 +290,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2000, 6, 30),
                     PhoneNumber = "0987444555",
                     BirthPlace = "Hanoi",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-93),
+                    UpdatedAt = DateTime.Now.AddDays(-43)
                 },
                 new Person
                 {
@@ -261,7 +303,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1996, 4, 3),
                     PhoneNumber = "0987555777",
                     BirthPlace = "Hai Duong",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-88),
+                    UpdatedAt = DateTime.Now.AddDays(-38)
                 },
                 new Person
                 {
@@ -272,7 +316,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(2001, 10, 20),
                     PhoneNumber = "0987999000",
                     BirthPlace = "Hue",
-                    IsGraduated = false
+                    IsGraduated = false,
+                    CreatedAt = DateTime.Now.AddDays(-83),
+                    UpdatedAt = DateTime.Now.AddDays(-33)
                 },
                 new Person
                 {
@@ -283,7 +329,9 @@ namespace MVC_NET_Core_Assignment_1.Data
                     DateOfBirth = new DateTime(1998, 12, 9),
                     PhoneNumber = "0987222777",
                     BirthPlace = "Da Nang",
-                    IsGraduated = true
+                    IsGraduated = true,
+                    CreatedAt = DateTime.Now.AddDays(-78),
+                    UpdatedAt = DateTime.Now.AddDays(-28)
                 }
             };
         }
